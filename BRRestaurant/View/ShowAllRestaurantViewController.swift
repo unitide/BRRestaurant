@@ -17,7 +17,7 @@ class ShowAllRestaurantViewController: UIViewController {
          var items = [UIBarButtonItem]()
         
          items.append(UIBarButtonItem.flexibleSpace())
-         items.append(UIBarButtonItem(image: UIImage(named: "icClose"), style: .plain, target: self, action: #selector(dismissMapView)))
+        items.append(UIBarButtonItem(image: UIImage(named: "icClose"), style: .done, target: self, action: #selector(dismissMapView)))
          toolBar.setItems(items, animated: true)
          return toolBar
      }()
@@ -40,9 +40,9 @@ class ShowAllRestaurantViewController: UIViewController {
         
         let safeGuide = self.view.safeAreaLayoutGuide
         myToolBar.topAnchor.constraint(equalTo: safeGuide.topAnchor).isActive = true
-        myToolBar.leadingAnchor.constraint(equalTo: safeGuide.leadingAnchor).isActive = true
-        myToolBar.trailingAnchor.constraint(equalTo: safeGuide.trailingAnchor).isActive = true
-        myToolBar.heightAnchor.constraint(equalToConstant: 60).isActive = true
+        myToolBar.trailingAnchor.constraint(equalTo: safeGuide.trailingAnchor, constant: -5).isActive = true
+        myToolBar.heightAnchor.constraint(equalToConstant: 40).isActive = true
+        myToolBar.widthAnchor.constraint(equalToConstant: 40).isActive = true
         
         myMapView.frame = self.view.bounds
     }
