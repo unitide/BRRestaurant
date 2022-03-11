@@ -57,9 +57,11 @@ class LunchViewController: UIViewController {
         
         let deviceType = UIDevice().model
         if deviceType.contains("iPad") {
-            itemWidth = floor(UIScreen.main.bounds.width / 4)
+            itemWidth = floor(UIScreen.main.bounds.width / 3)
+            layout.sectionInset = UIEdgeInsets(top: 10, left: 70, bottom: 10, right: 70)
         } else {
             itemWidth = UIScreen.main.bounds.width
+            layout.sectionInset = UIEdgeInsets(top: 10, left: 20, bottom: 10, right: 20)
         }
         let size = CGSize(width: itemWidth, height: 180)
         
