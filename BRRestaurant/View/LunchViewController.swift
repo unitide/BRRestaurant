@@ -7,6 +7,7 @@
 
 import Combine
 import UIKit
+import MapKit
 
 class LunchViewController: UIViewController {
     // MARK: - Properties
@@ -48,14 +49,22 @@ class LunchViewController: UIViewController {
         restaurantCollectionView?.dataSource = self
         restaurantCollectionView?.delegate = self
         restaurantCollectionView?.reloadData()
+        var itemWidth: Double
         
         // Setup collection view layout
         let layout = UICollectionViewFlowLayout()
         layout.scrollDirection = .vertical
-        let width = UIScreen.main.bounds.width
-        let size = CGSize(width: width, height: 180)
+        
+        let deviceType = UIDevice().model
+        if deviceType.contains("iPad") {
+            itemWidth = floor(UIScreen.main.bounds.width / 4)
+        } else {
+            itemWidth = UIScreen.main.bounds.width
+        }
+        let size = CGSize(width: itemWidth, height: 180)
+        
         layout.itemSize = size
-        layout.minimumLineSpacing = 0
+        layout.minimumLineSpacing = 5
         restaurantCollectionView?.collectionViewLayout = layout
     }
     

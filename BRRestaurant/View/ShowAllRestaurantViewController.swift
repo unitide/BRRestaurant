@@ -41,9 +41,16 @@ class ShowAllRestaurantViewController: UIViewController {
         let safeGuide = self.view.safeAreaLayoutGuide
         myToolBar.topAnchor.constraint(equalTo: safeGuide.topAnchor).isActive = true
         myToolBar.trailingAnchor.constraint(equalTo: safeGuide.trailingAnchor, constant: -5).isActive = true
-        myToolBar.heightAnchor.constraint(equalToConstant: 40).isActive = true
-        myToolBar.widthAnchor.constraint(equalToConstant: 40).isActive = true
+        let deviceType = UIDevice().model
         
+        if deviceType.contains("iPad") {
+            myToolBar.heightAnchor.constraint(equalToConstant: 80).isActive = true
+            myToolBar.widthAnchor.constraint(equalToConstant: 80).isActive = true
+            
+        } else {
+            myToolBar.heightAnchor.constraint(equalToConstant: 50).isActive = true
+            myToolBar.widthAnchor.constraint(equalToConstant: 50).isActive = true
+        }
         myMapView.frame = self.view.bounds
     }
     
